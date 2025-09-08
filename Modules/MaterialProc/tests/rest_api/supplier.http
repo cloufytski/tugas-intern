@@ -1,0 +1,50 @@
+GET {{host}}/api/procurement/supplier HTTP/1.1
+Authorization: {{token}}
+###
+
+GET {{host}}/api/procurement/supplier HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "supplier": "test"
+}
+###
+
+GET {{host}}/api/procurement/supplier/1 HTTP/1.1
+Authorization: {{token}}
+###
+
+POST {{host}}/api/procurement/supplier HTTP/1.1
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "supplier": "TESTING"
+}
+###
+
+GET {{host}}/api/procurement/supplier/94 HTTP/1.1
+Authorization: {{token}}
+###
+
+PUT {{host}}/api/procurement/supplier/94 HTTP/1.1
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "supplier": "NEW testing"
+}
+###
+
+DELETE {{host}}/api/procurement/supplier/94 HTTP/1.1
+Authorization: {{token}}
+###
+
+PUT {{host}}/api/procurement/supplier/94 HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "is_restore": true
+}

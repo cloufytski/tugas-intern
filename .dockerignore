@@ -1,0 +1,32 @@
+# Ignore version control files
+.git
+.gitignore
+
+# Ignore local environment files
+.env
+.env.*
+
+# Ignore dependencies (they will be installed in the container)
+node_modules
+vendor
+
+# Ignore logs
+*.log
+storage/logs
+storage/app/public
+storage/debugbar
+
+# Ignore Docker-related files (optional)
+.dockerignore
+Dockerfile
+docker-compose.*
+
+# Ignore temporary files
+*.tmp
+
+# Ignore generated test files
+/coverage
+
+# Ignore ide
+/.idea
+/.vscode

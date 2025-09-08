@@ -1,0 +1,11 @@
+{
+    "name": "MaterialProc",
+    "alias": "materialproc",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\MaterialProc\\Providers\\MaterialProcServiceProvider"
+    ],
+    "files": []
+}

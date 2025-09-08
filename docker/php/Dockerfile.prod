@@ -1,0 +1,55 @@
+# === Stage 1: Node.js build for Vite ===
+FROM node:20-alpine AS node-builder
+
+WORKDIR /app
+
+# Install frontend deps and build assets
+COPY package*.json ./
+# Clean npm install
+RUN rm -rf node_modules package-lock.json && npm install --no-progress
+
+COPY resources ./resources
+COPY public ./public
+COPY vite.config.* ./
+
+RUN npm run build
+
+FROM php:8.2-fpm AS php-app
+
+# Install PHP extensions
+RUN apt-get update && apt-get install -y \
+    libpng-dev libjpeg-dev libfreetype6-dev libldap2-dev \
+    libpq-dev libonig-dev libxml2-dev libzip-dev \
+    && docker-php-ext-configure zip \
+    && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu \
+    && docker-php-ext-install pdo pdo_pgsql gd ldap zip \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Copy application source (respects .dockerignore)
+COPY . .
+
+# Fix directory permissions
+RUN mkdir -p storage bootstrap/cache \
+    && chown -R www-data:www-data storage bootstrap \
+    && chmod -R 775 public storage bootstrap/cache
+
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Install PHP dependencies for production
+RUN composer install --no-dev --prefer-dist --optimize-autoloader
+
+# Copy compiled frontend assets from node stage
+COPY --from=node-builder /app/public/build /var/www/html/public/build
+RUN chown -R www-data:www-data public/build
+
+# Add entrypoint script
+COPY ./docker/php/entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+EXPOSE 9000
+CMD ["php-fpm"]

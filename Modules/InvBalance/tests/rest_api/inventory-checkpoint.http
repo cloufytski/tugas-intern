@@ -1,0 +1,19 @@
+GET {{host}}/api/inventory/checkpoint HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "year": "2025",
+    "categories": [4]
+}
+###
+
+POST {{host}}/api/inventory/checkpoint HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "date": "2025-01-01",
+    "group": 1,
+    "value": 12.5
+}

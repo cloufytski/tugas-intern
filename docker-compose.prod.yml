@@ -1,0 +1,28 @@
+services:
+  app:
+    image: pspa_scm:latest # # Built with `docker build -t pspa_scm .`
+    container_name: pspa_scm
+    working_dir: /var/www/html
+    volumes:
+      - ./.env:/var/www/html/.env:ro
+    networks:
+      - pspa_scm_network
+    restart: unless-stopped
+
+  web:
+    image: nginx-pspa_scm:latest # Build with Dockerfile from docker
+    container_name: nginx-pspa_scm
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./docker/nginx/certs:/etc/nginx/certs:ro
+    ports:
+      - "44301:443"
+    networks:
+      - pspa_scm_network
+    depends_on:
+      - app
+    restart: unless-stopped
+
+networks:
+  pspa_scm_network:
+    driver: bridge

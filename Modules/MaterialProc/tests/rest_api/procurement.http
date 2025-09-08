@@ -1,0 +1,101 @@
+GET {{host}}/api/procurement/procurement HTTP/1.1
+Authorization: {{token}}
+###
+
+POST {{host}}/api/procurement/procurement HTTP/1.1
+Content-Type: application/json
+Authorization: {{token}}
+# supplier not found
+
+{
+    "supplier": "Non Exist",
+    "material_description": "CPKO",
+    "qty_plan": 100,
+    "eta_plan": "2025-01-01",
+    "contract_no": "123123123",
+    "plant": "1002"
+}
+###
+
+POST {{host}}/api/procurement/procurement HTTP/1.1
+Content-Type: application/json
+Authorization: {{token}}
+# material not found
+
+{
+    "supplier": "Adhitya, PT",
+    "material_description": "Non Exist",
+    "qty_plan": 100,
+    "eta_plan": "2025-01-01",
+    "contract_no": "123123123",
+    "plant": "1002"
+}
+###
+POST {{host}}/api/procurement/procurement HTTP/1.1
+Content-Type: application/json
+Authorization: {{token}}
+# plant not found
+
+{
+    "supplier": "Adhitya, PT",
+    "material_description": "CPKO",
+    "qty_plan": 100,
+    "eta_plan": "2025-01-01",
+    "contract_no": "123123123",
+    "plant": "Not Exist"
+}
+###
+POST {{host}}/api/procurement/procurement HTTP/1.1
+Content-Type: application/json
+Authorization: {{token}}
+# supplier and material found with case sensitive
+
+{
+    "supplier": "Adhitya, PT",
+    "material_description": "CPKO",
+    "qty_plan": 7890,
+    "eta_plan": "2025-01-01",
+    "contract_no": "123123123",
+    "plant": "1002"
+}
+###
+
+GET {{host}}/api/procurement/procurement/1 HTTP/1.1
+Authorization: {{token}}
+###
+
+PUT {{host}}/api/procurement/procurement/1 HTTP/1.1
+Content-Type: application/json
+Authorization: {{token}}
+# without qty_actual and eta_actual
+
+{
+    "supplier": "London Sumatra Indonesia, PT",
+    "material_description": "CNO",
+    "qty_plan": 11.1,
+    "eta_plan": "2025-01-01",
+    "contract_no": "987987987",
+    "vessel_name": "vessel",
+    "plant": "1003"
+}
+###
+
+PUT {{host}}/api/procurement/procurement/1 HTTP/1.1
+Content-Type: application/json
+Authorization: {{token}}
+# with qty_actual and eta_actual
+
+{
+    "supplier": "KPB Nusantara, PT",
+    "material_description": "CPKO-DF",
+    "qty_actual": 78.78,
+    "qty_plan": 100.7,
+    "eta_actual": "2025-03-04",
+    "eta_plan": "2025-01-01",
+    "contract_no": "4564",
+    "plant": "1003"
+}
+###
+
+DELETE {{host}}/api/procurement/procurement/1 HTTP/1.1
+Authorization: {{token}}

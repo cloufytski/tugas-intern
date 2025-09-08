@@ -1,0 +1,61 @@
+GET {{host}}/api/master/section HTTP/1.1
+Authorization: {{token}}
+###
+
+GET {{host}}/api/master/section HTTP/1.1
+Content-Type: application/json
+Authorization: {{token}}
+# Find Sections by plantId string
+
+{
+    "id_plant": 4
+}
+###
+
+GET {{host}}/api/master/section HTTP/1.1
+Content-Type: application/json
+Authorization: {{token}}
+# Find Sections by plantId Array
+
+{
+    "id_plant": [2, 3]
+}
+###
+
+GET {{host}}/api/master/section/1 HTTP/1.1
+Authorization: {{token}}
+###
+
+GET {{host}}/api/master/section/100 HTTP/1.1
+Authorization: {{token}}
+###
+
+POST {{host}}/api/master/section HTTP/1.1
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "id_plant": "1",
+    "section": "SECTION",
+    "description": "test test"
+}
+###
+
+GET {{host}}/api/master/section/34 HTTP/1.1
+Authorization: {{token}}
+###
+
+PUT {{host}}/api/master/section/34 HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "id_plant": "6",
+    "section": "UPDATE section",
+    "description": "update test test"
+}
+###
+
+DELETE {{host}}/api/master/section/34 HTTP/1.1
+Authorization: {{token}}
+###

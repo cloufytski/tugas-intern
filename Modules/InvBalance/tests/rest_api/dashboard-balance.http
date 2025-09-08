@@ -1,0 +1,14 @@
+
+POST {{host}}/api/inventory/total HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+# RM > CPKO + CPKOL
+
+{
+    "date_group": "weekly",
+    "start_date": "2025-08-01",
+    "end_date": "2025-08-30",
+    "categories": [14],
+    "groups": [176, 177]
+}
+###

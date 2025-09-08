@@ -1,0 +1,11 @@
+{
+    "name": "InvBalance",
+    "alias": "invbalance",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\InvBalance\\Providers\\InvBalanceServiceProvider"
+    ],
+    "files": []
+}

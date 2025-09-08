@@ -1,0 +1,10 @@
+/* CSS: custom icon for expandable row with child table */
+
+td.details-control {
+  cursor: pointer;
+}
+
+/* Disable hover effect for the child table */
+.child-table tbody tr:hover {
+  background-color: transparent; /* Remove hover background color for the child table */
+}

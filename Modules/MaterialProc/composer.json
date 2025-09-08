@@ -1,0 +1,30 @@
+{
+    "name": "nwidart/materialproc",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\MaterialProc\\": "app/",
+            "Modules\\MaterialProc\\Database\\Factories\\": "database/factories/",
+            "Modules\\MaterialProc\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\MaterialProc\\Tests\\": "tests/"
+        }
+    }
+}

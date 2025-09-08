@@ -1,0 +1,6 @@
+{
+    "ProductionPlan": true,
+    "SalesPlan": true,
+    "MaterialProc": true,
+    "InvBalance": true
+}

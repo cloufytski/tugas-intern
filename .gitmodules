@@ -1,0 +1,12 @@
+[submodule "Modules/MaterialProc"]
+	path = Modules/MaterialProc
+	url = git@ssh.dev.azure.com:v3/eoads/pspa-scm/pspa-scm-material-proc
+    branch = main
+[submodule "Modules/SalesPlan"]
+	path = Modules/SalesPlan
+	url = git@ssh.dev.azure.com:v3/eoads/pspa-scm/pspa-scm-sales-plan
+    branch = main
+[submodule "Modules/ProductionPlan"]
+	path = Modules/ProductionPlan
+	url = git@ssh.dev.azure.com:v3/eoads/pspa-scm/pspa-scm-production-plan
+    branch = main

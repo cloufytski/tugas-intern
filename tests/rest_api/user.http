@@ -1,0 +1,31 @@
+GET {{host}}/api/my-user HTTP/1.1
+Authorization: {{token}}
+###
+
+POST {{host}}/api/login HTTP/1.1
+Content-Type: application/json
+# Login user
+
+{
+    "email": "super-admin@app.com",
+    "password": "password"
+}
+###
+
+POST {{host}}/api/register HTTP/1.1
+Content-Type: application/json
+# Register user
+
+{
+    "name": "Admin Admin",
+    "username": "admin",
+    "email": "admin@admin.com",
+    "password": "adminadmin",
+    "password_confirmation": "adminadmin"
+}
+###
+
+POST {{host}}/api/logout HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+# Logout user

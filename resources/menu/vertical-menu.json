@@ -1,0 +1,224 @@
+{
+    "menu": [
+        {
+            "url": "/",
+            "name": "Dashboard",
+            "icon": "menu-icon tf-icons bx bx-home-smile",
+            "slug": "dashboard"
+        },
+        {
+            "name": "Inventory Balance",
+            "icon": "menu-icon tf-icons bx bxs-book-content",
+            "url": "inventory/balance",
+            "slug": "inventory.balance.view",
+            "permission": [
+                "dashboard-sales-read",
+                "dashboard-production-read"
+            ]
+        },
+        {
+            "name": "Balance BUG",
+            "icon": "menu-icon tf-icons bx bxs-book",
+            "url": "inventory-balance",
+            "slug": "inventory.balance.view.BUG",
+            "permission": [
+                "developer-update"
+            ]
+        },
+        {
+            "menuHeader": "PSPA"
+        },
+        {
+            "name": "Sales",
+            "icon": "menu-icon tf-icons bx bx-wallet",
+            "slug": "sales",
+            "permission": [
+                "dashboard-sales-read",
+                "inquiry-read",
+                "projection-read"
+            ],
+            "submenu": [
+                {
+                    "url": "sales/dashboard",
+                    "name": "Dashboard",
+                    "slug": "sales.dashboard.view",
+                    "permission": "dashboard-sales-read"
+                },
+                {
+                    "url": "sales/inquiries",
+                    "name": "Inquiry",
+                    "slug": "sales.inquiry.view",
+                    "permission": "inquiry-read"
+                },
+                {
+                    "url": "sales/database",
+                    "name": "Database",
+                    "slug": "sales.database.view",
+                    "permission": "projection-read"
+                },
+                {
+                    "url": "sales/orders",
+                    "name": "Order",
+                    "slug": "sales.order.view",
+                    "permission": "order-read"
+                }
+            ]
+        },
+        {
+            "name": "Production",
+            "icon": "menu-icon tf-icons bx bx-clipboard",
+            "slug": "production",
+            "permission": [
+                "dashboard-production-read",
+                "mode-read",
+                "schedule-read",
+                "prodsum-read"
+            ],
+            "submenu": [
+                {
+                    "url": "production/dashboard",
+                    "name": "Dashboard",
+                    "slug": "production.dashboard.view",
+                    "permission": "dashboard-production-read"
+                },
+                {
+                    "url": "production/modes",
+                    "name": "Mode",
+                    "slug": "production.mode.view",
+                    "permission": "mode-read"
+                },
+                {
+                    "url": "production/schedules",
+                    "name": "Schedule",
+                    "slug": "production.schedule.view",
+                    "permission": "schedule-read"
+                },
+                {
+                    "url": "production/dps",
+                    "name": "DPS",
+                    "slug": "production.prodsum.view",
+                    "permission": "prodsum-read"
+                },
+                {
+                    "name": "Actual",
+                    "slug": "production.actual",
+                    "permission": [
+                        "developer-update"
+                    ],
+                    "submenu": [
+                        {
+                            "url": "production/actual/tank-farms",
+                            "name": "Tank Farm",
+                            "slug": "production.actual.tank-farm.view",
+                            "permission": "tank-farm-read"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Raw Material",
+            "icon": "menu-icon tf-icons bx bx-package",
+            "slug": "procurement",
+            "permission": [
+                "procurement-read"
+            ],
+            "submenu": [
+                {
+                    "url": "procurement/dashboard",
+                    "name": "Dashboard",
+                    "slug": "procurement.dashboard.view",
+                    "permission": "dashboard-procurement-read"
+                },
+                {
+                    "url": "procurement/receipt",
+                    "name": "Receipt",
+                    "slug": "procurement.procurement.view",
+                    "permission": "procurement-read"
+                },
+                {
+                    "url": "procurement/mb-products",
+                    "name": "MB Product",
+                    "slug": "procurement.mb-products.view",
+                    "permission": [
+                        "developer-update"
+                    ]
+                }
+            ]
+        },
+        {
+            "menuHeader": "Master"
+        },
+        {
+            "name": "Master Data",
+            "icon": "menu-icon tf-icons bx bx-data",
+            "slug": "master",
+            "submenu": [
+                {
+                    "name": "Plant",
+                    "slug": "master.plant.view",
+                    "url": "master/plants",
+                    "permission": "master-plant-read"
+                },
+                {
+                    "name": "Material",
+                    "slug": "master.material.view",
+                    "url": "master/materials",
+                    "permission": "master-material-read"
+                },
+                {
+                    "name": "Order Status",
+                    "slug": "master.order.status.view",
+                    "url": "master/order-status",
+                    "permission": "master-order-read"
+                },
+                {
+                    "name": "Customer",
+                    "slug": "master.customer.view",
+                    "url": "master/customer",
+                    "permission": "master-customer-read"
+                },
+                {
+                    "name": "Supplier",
+                    "slug": "master.supplier.view",
+                    "url": "master/supplier",
+                    "permission": "master-supplier-read"
+                }
+            ]
+        },
+        {
+            "name": "Inventory Checkpoints",
+            "icon": "menu-icon tf-icons bx bx-store",
+            "url": "inventory/checkpoints",
+            "slug": "inventory.checkpoint.view",
+            "permission": "inventory-checkpoint-read"
+        },
+        {
+            "menuHeader": "Admin Management",
+            "permission": [
+                "users-read"
+            ]
+        },
+        {
+            "name": "Users",
+            "icon": "menu-icon tf-icons bx bxs-user",
+            "slug": "user.view",
+            "url": "admin/user",
+            "permission": "users-read"
+        },
+        {
+            "name": "Logs",
+            "icon": "menu-icon tf-icons bx bx-list-check",
+            "slug": "log.transaction.view",
+            "url": "logs",
+            "permission": "developer-update"
+        },
+        {
+            "name": "API Docs",
+            "icon": "menu-icon tf-icons bx bxs-file",
+            "slug": "api-docs.view",
+            "url": "api-docs",
+            "permission": "developer-update"
+        }
+    ]
+}

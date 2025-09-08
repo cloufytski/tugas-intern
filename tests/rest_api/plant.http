@@ -1,0 +1,48 @@
+GET {{host}}/api/master/plant HTTP/1.1
+Authorization: {{token}}
+###
+
+GET {{host}}/api/master/plant/1 HTTP/1.1
+Authorization: {{token}}
+###
+
+GET {{host}}/api/master/plant/200 HTTP/1.1
+Accept: application/json
+Authorization: {{token}}
+###
+
+POST {{host}}/api/master/plant HTTP/1.1
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "plant": "456",
+    "description": "test"
+}
+###
+
+GET {{host}}/api/master/plant/9 HTTP/1.1
+Authorization: {{token}}
+###
+
+PUT {{host}}/api/master/plant/9 HTTP/1.1
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "plant": "789",
+    "description": "update tested"
+}
+###
+
+DELETE {{host}}/api/master/plant/9 HTTP/1.1
+Authorization: {{token}}
+###
+
+PUT {{host}}/api/master/plant/9 HTTP/1.1
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "is_restore": true
+}

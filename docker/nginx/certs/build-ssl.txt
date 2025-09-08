@@ -1,0 +1,7 @@
+1. Run in Git Bash
+
+
+MSYS_NO_PATHCONV=1 openssl req -x509 -nodes -days 3650 -newkey rsa:2048 \
+  -keyout docker/nginx/certs/nginx-selfsigned.key \
+  -out docker/nginx/certs/nginx-selfsigned.crt \
+  -subj "/C=ID/ST=Riau/L=Batam/O=Ecogreen/OU=AnD/CN=172.16.11.33"

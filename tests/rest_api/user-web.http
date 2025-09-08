@@ -1,0 +1,22 @@
+
+GET {{host}}/sanctum/csrf-cookie
+Accept: application/json
+# Get CSRF Token & Cookies
+###
+
+POST {{host}}/login
+Content-Type: application/json
+Accept: application/json
+X-XSRF-TOKEN: {{csrfToken}}
+# FAILED get CSRF token mismatch
+
+{
+    "email": "admin@admin.com",
+    "password": "12345678"
+}
+###
+
+GET {{host}}/user HTTP/1.1
+X-XSRF-TOKEN: {{csrfToken}}
+Content-Type: application/json
+###

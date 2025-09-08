@@ -1,0 +1,28 @@
+GET {{host}}/api/user-preferences HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+###
+
+POST {{host}}/api/user-preferences HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "preferences": [
+        {
+            "log_module": "test",
+            "id_user": 1,
+            "menu": "test",
+            "filter_tag": "tag",
+            "value": {
+                "product_category": [1,2], "product_group": [1,2]
+            }
+        }
+    ]
+}
+###
+
+GET {{host}}/api/user-preferences?menu=test HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+###

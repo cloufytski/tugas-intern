@@ -1,0 +1,77 @@
+POST {{host}}/api/inventory/production HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "date_group": "weekly",
+    "start_date": "2025-08-01",
+    "end_date": "2025-08-10",
+    "categories": [4],
+    "groups": [58]
+}
+###
+
+POST {{host}}/api/inventory/sales HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "date_group": "weekly",
+    "start_date": "2025-08-01",
+    "end_date": "2025-08-30",
+    "categories": [4],
+    "groups": [58]
+}
+###
+
+POST {{host}}/api/inventory/procurement HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "date_group": "weekly",
+    "start_date": "2025-08-01",
+    "end_date": "2025-08-30",
+    "categories": [14]
+}
+###
+
+POST {{host}}/api/inventory/balance HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+# Alc Longchain > FA16
+
+{
+    "date_group": "weekly",
+    "start_date": "2025-08-01",
+    "end_date": "2025-08-30",
+    "categories": [4],
+    "groups": [58]
+}
+###
+
+POST {{host}}/api/inventory/balance HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+# RM > CPKO + CPKOL
+
+{
+    "date_group": "weekly",
+    "start_date": "2025-08-01",
+    "end_date": "2025-08-30",
+    "categories": [14],
+    "groups": [176, 177]
+}
+###
+
+GET {{host}}/api/inventory/log HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+###
+
+POST {{host}}/api/inventory/refresh HTTP/1.1
+Authorization: {{token}}
+Content-Type: application/json
+# Refresh Materialized View
+
+###

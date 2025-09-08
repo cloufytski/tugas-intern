@@ -1,0 +1,20 @@
+GET {{host}}/api/master/material HTTP/1.1
+Authorization: {{token}}
+###
+
+GET {{host}}/api/master/material HTTP/1.1
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "material_description": "olein"
+}
+###
+
+GET {{host}}/master/material?material_description=olein HTTP/1.1
+Authorization: {{token}}
+###
+
+GET {{host}}/api/master/material/91 HTTP/1.1
+Authorization: {{token}}
+###
