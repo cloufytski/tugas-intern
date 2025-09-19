@@ -72,7 +72,7 @@ class InventoryBalanceService
             $item['date'] = Utils::constructPeriodToDate($item['period'], $dateGroup, $startDate);
             $item['total_actual'] = floatval($item['total_actual']);
             $item['total_plan'] = floatval($item['total_plan']);
-            $item['total'] = floatval($item['total_actual']) + floatval($item['total_plan']);
+            $item['total'] = floatval($item['total']);
             return $item;
         });
     }
@@ -155,7 +155,7 @@ class InventoryBalanceService
             ->map(function ($group) use (&$result) {
                 $weekStart = $group->first()->period;
                 foreach ($group as $item) {
-                    $result[$item->id_group][$weekStart]['receipt'] = ($result[$item->id_group][$weekStart]['receipt'] ?? 0) + floatval($item->total_actual) + floatval($item->total_plan);
+                    $result[$item->id_group][$weekStart]['receipt'] = ($result[$item->id_group][$weekStart]['receipt'] ?? 0) + floatval($item->total);
                 }
             });
 

@@ -29,7 +29,7 @@ Route::middleware('auth:sanctum')->prefix('procurement')->name('procurement.')->
     Route::resource('supplier', SupplierController::class)->names('supplier');
     Route::resource('procurement', ProcurementController::class)->names('procurement');
     Route::resource('mb-product', MbProductController::class)->names('mb-product');
-    
+
     // route view
     Route::get('receipt', [ProcurementController::class, 'view'])->name('procurement.view');
     Route::get('dashboard', [MaterialProcController::class, 'dashboardView'])->name('dashboard.view');

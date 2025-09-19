@@ -23,19 +23,16 @@ return new class extends Migration
         CREATE MATERIALIZED VIEW inventory_procurement_view AS
         SELECT
             eta,
-            CASE
-                WHEN ffa <= 3 THEN 0
-                WHEN ffa > 3 AND ffa <= 4 THEN 1
-                WHEN ffa > 4 OR ffa IS NULL THEN 2
-            END AS ffa_status,
             m.id_group as id_group,
             m.id_category as id_category,
+            string_agg(DISTINCT p.vessel_name, ', ') AS vessel_port,
             SUM(CASE WHEN p.qty_actual IS NOT NULL AND p.eta_actual IS NOT NULL THEN p.qty_actual ELSE 0 END) AS total_actual,
-            SUM(CASE WHEN p.qty_actual IS NULL AND p.eta_actual IS NULL THEN p.qty_plan ELSE 0 END) AS total_plan
+            SUM(CASE WHEN p.qty_actual IS NULL AND p.eta_actual IS NULL THEN p.qty_plan ELSE 0 END) AS total_plan,
+            SUM(qty) AS total
         FROM procurement_ts p
         JOIN material_master m on p.id_material = m.id
-        GROUP BY eta, ffa_status, id_group, id_category
-        ORDER BY eta, ffa_status, id_group, id_category ASC;
+        GROUP BY eta, id_group, id_category
+        ORDER BY eta, id_group, id_category ASC;
         ");
     }
 

@@ -22,9 +22,11 @@ class InventoryProcurementRepository implements InventoryProcurementRepositoryIn
             DB::raw("TO_CHAR($this->table.eta, '{$dateFormat}') as period"),
             "$this->table.id_group",
             "$this->table.id_category",
+            'material_group_master.product_group',
             DB::raw("ROUND(SUM($this->table.total_actual)::NUMERIC, 3) as total_actual"),
             DB::raw("ROUND(SUM($this->table.total_plan)::NUMERIC, 3) as total_plan"),
-            'material_group_master.product_group',
+            DB::raw("ROUND(SUM($this->table.total)::NUMERIC, 3) as total"),
+            DB::raw("string_agg(DISTINCT $this->table.vessel_port, ', ') AS vessel_port")
         ];
 
         $groups = [
