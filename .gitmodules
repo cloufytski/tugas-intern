@@ -10,3 +10,6 @@
 	path = Modules/ProductionPlan
 	url = git@ssh.dev.azure.com:v3/eoads/pspa-scm/pspa-scm-production-plan
     branch = main
+[submodule "Modules/ProdustionPlan"]
+	path = Modules/ProdustionPlan
+	url = git@ssh.dev.azure.com:v3/eoads/pspa-scm/pspa-scm-production-plan
